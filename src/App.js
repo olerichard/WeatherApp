@@ -36,8 +36,8 @@ class App extends Component {
     return (
       <div className="App">
         <div style={appStyle}></div>
-        {this.state.location == null ? null : <Location location={this.state.location} />}
-        {this.state.location == null ? null : <Time />}
+        {this.state.weather == null ? null : <Location location={this.state.weather.name} />}
+        {this.state.weather == null ? null : <Time />}
         {this.state.weather == null ? null : <Weather state={this.state} />}
       </div>
     );

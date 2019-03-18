@@ -51,10 +51,11 @@ export default class Time extends Component {
 
   style = {
     color: "white",
-    fontSize: "35px",
+    fontSize: "40px",
     textAlign: "center",
     margin: "0px",
     padding: "0px",
+    fontFamily: "'Overpass Mono', monospace",
     WebkitTextStroke: "1px black"
   }
 
@@ -62,7 +63,7 @@ export default class Time extends Component {
   render() {
     return (
       <div>
-        <h1 style={this.style}>{this.state.date}, {this.state.time} </h1>
+        <p style={this.style}>{this.state.date}, {this.state.time} </p>
       </div>
     )
   }

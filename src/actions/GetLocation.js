@@ -1,12 +1,24 @@
-import axios from 'axios';
-
 export default async function GetLocation() {
 
+  let location
+  //Making the geolocation into a promis. 
+  //Making it possible for me to return the location back and keep it in state.
+  var getPosition = function (options) {
+    return new Promise(function (resolve, reject) {
+      navigator.geolocation.getCurrentPosition(resolve, reject, options);
+    });
+  }
 
-  return await axios.get(`https://ipinfo.io/`)
-    .then(res => res.data.city)
-    .catch(() => "Stavanger")
+  await getPosition()
+    .then((position) => {
+      location = {
+        latitude: position.coords.latitude,
+        longitude: position.coords.longitude
+      }
+    })
+    .catch((err) => {
+      console.error(err.message);
+    });
 
-
-
+  return location
 }
